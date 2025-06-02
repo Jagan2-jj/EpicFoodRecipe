@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitMeal - Diet Plans for Gym Enthusiasts</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="#" class="logo">FitMeal</a>
+        <ul class="nav-links">
+          <li><a href="#meal-plans">Meal Plans</a></li>
+          <li><a href="#recipes">Recipes</a></li>
+          <li><a href="#calculator">Calculator</a></li>
+        </ul>
+      </div>
+    </nav>
+    <section id="home" class="hero">
+      <div class="container">
+        <h1>Transform Your Diet,<br />Transform Your Life</h1>
+        <p>
+          Get personalized meal plans tailored to your fitness goals. Whether
+          you're bulking, cutting, or maintaining, we've got you covered.
+        </p>
+        <div class="cta-buttons">
+          <a href="#meal-plans" class="btn btn-primary">Explore Meal Plans</a>
+          <a href="#calculator" class="btn btn-secondary"
+            >Calculate Your Macros</a
+          >
+        </div>
+      </div>
+    </section>
+    <section id="meal-plans" class="meal-plans">
+      <div class="container">
+        <h2>Featured Meal Plans</h2>
+        <div class="meal-plan-grid">
+          <!-- Meal plans will be inserted here by JavaScript -->
+        </div>
+      </div>
+    </section>
+    <section id="calculator" class="calculator">
+      <div class="container">
+        <h2>Macro Calculator</h2>
+        <div class="calculator-form">
+          <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" min="30" max="300" />
+          </div>
+          <div class="form-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" min="100" max="250" />
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" min="15" max="100" />
+          </div>
+          <div class="form-group">
+            <label for="activity">Activity Level</label>
+            <select id="activity">
+              <option value="sedentary">Sedentary</option>
+              <option value="light">Lightly Active</option>
+              <option value="moderate">Moderately Active</option>
+              <option value="very">Very Active</option>
+              <option value="extra">Extra Active</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="goal">Goal</label>
+            <select id="goal">
+              <option value="lose">Lose Weight</option>
+              <option value="maintain">Maintain Weight</option>
+              <option value="gain">Gain Weight</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <button id="calculate" class="btn btn-primary">Calculate</button>
+        </div>
+        <div id="results" class="calculator-results hidden"></div>
+      </div>
+    </section>
+    <section id="recipes" class="recipes">
+      <div class="container">
+        <h2>Healthy Recipes</h2>
+        <div class="recipe-filters">
+          <select id="recipe-type-filter">
+            <option value="all">All Types</option>
+            <option value="muscle-building">Muscle Builder</option>
+            <option value="cutting">Lean Cutting Plan</option>
+            <option value="balanced">Balanced Maintenance</option>
+            <option value="olympic-lifting">
+              Olympic Lifting Program
+            </option>
+            <option value="calisthenics">Calisthenics Builder</option>
+            <option value="yoga">Yoga & Flexibility</option>
+            <option value="combat-sports">
+              Combat Sports Nutrition
+            </option>
+            <option value="strongman">Strongman Diet</option>
+            <option value="recovery">
+              Recovery & Rehabilitation
+            </option>
+            <option value="basketball">
+              Basketball Performance
+            </option>
+            <option value="wrestling">Wrestling & Grappling</option>
+            <option value="competition-prep">Competition Prep</option>
+            <option value="senior-fitness">Senior Fitness</option>
+          </select>
+        </div>
+        <div class="recipe-grid">
+          <!-- Results will be inserted here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

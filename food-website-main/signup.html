@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Epic Food Recipe</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url("food.jpg");
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        padding: 40px;
+        width: 400px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .form-group label {
+        font-weight: bold;
+        font-size: 18px;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 20px;
+        height: 30px;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #b57f3d;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+
+      .btn:hover {
+        background-color: #e6a157;
+      }
+
+      .signup-link {
+        margin-top: 15px;
+        font-size: 16px;
+      }
+
+      .signup-link a {
+        color: #b57f3d;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .signup-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+
+
+    
+
+    <div class="container">
+      <h2>Registration</h2>
+      <form id="login-form" onsubmit="registerUser(event)">
+          
+        <div class="form-group">
+          <label for="email">User Name</label>
+          <input type="text" id="username" placeholder="Enter your username....." required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email....." required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password...." required />
+        </div>
+        <button type="submit" class="btn">Register</button>
+      </form>
+      <div class="signup-link">
+        Don't have an account? <a href="signin.html">Sign up</a>
+      </div>
+      <script>
+         async function registerUser(event) {
+  event.preventDefault();  
+
+  const username = document.getElementById("username").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+   
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  
+  if (!username || !email || !password) {
+    alert("All fields are required.");
+    return;
+  }
+
+  if (!isValidEmail(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters long.");
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:5001/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, email, password }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Registration successful!");
+      window.location.href = "signin.html";
+    } else {
+      alert(data.message || "Registration failed. Please try again.");
+    }
+  } catch (error) {
+    console.error("Network error:", error);
+    alert("Unable to connect to the server.");
+  }
+}
+
+      </script>
+      
+  </body>
+</html>
